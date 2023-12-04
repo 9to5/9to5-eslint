@@ -1,0 +1,14 @@
+{
+  "name": "9to5-eslint",
+  "version": "1.0.0",
+  "description": "Custom eslint rules we use at 9to5-software",
+  "main": "index.js",
+  "files": [
+    "/rules"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim de Booij - 9to5 Software",
+  "license": "ISC"
+}

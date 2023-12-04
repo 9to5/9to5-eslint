@@ -30,7 +30,38 @@ ruleTester.run("force-nuxt-link-locale", rule, {
   invalid: [
     {
       filename: "test.vue",
-      code: `<template><NuxtLink to="/">Home</NuxtLink></template>`,
+      code: `
+      <template>
+        <NuxtLink to="/" class="link" myProp="{ test: true }">
+          Home
+        </NuxtLink>
+      </template>
+      `,
+      output: `
+      <template>
+        <NuxtLinkLocale to="/" class="link" myProp="{ test: true }">
+          Home
+        </NuxtLinkLocale>
+      </template>
+      `,
+      errors: [{ message: "Use NuxtLinkLocale instead of NuxtLink" }],
+    },
+    {
+      filename: "test.vue",
+      code: `
+      <template>
+        <NuxtLink to="localePath({ name: 'index' })"  class="link" myProp="{ test: true }">
+          Home
+        </NuxtLink>
+      </template>
+      `,
+      output: `
+      <template>
+        <NuxtLinkLocale to="{ name: 'index' }" class="link" myProp="{ test: true }">
+          Home
+        </NuxtLinkLocale>
+      </template>
+      `,
       errors: [{ message: "Use NuxtLinkLocale instead of NuxtLink" }],
     },
   ],

@@ -1,14 +1,38 @@
 {
   "name": "eslint-plugin-9to5",
-  "version": "1.0.0",
-  "description": "Custom eslint rules we use at 9to5-software",
-  "main": "index.js",
-  "files": [
-    "/rules"
+  "version": "1.0.2",
+  "description": "9to5 eslint rules",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
   ],
+  "author": "Tim de Booij",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm-run-all \"lint:*\"",
+    "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
+    "lint:js": "eslint .",
+    "test": "mocha tests --recursive",
+    "update:eslint-docs": "eslint-doc-generator"
   },
-  "author": "Tim de Booij - 9to5 Software",
+  "dependencies": {
+    "requireindex": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-doc-generator": "^1.6.1",
+    "eslint-plugin-eslint-plugin": "^5.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^10.2.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": "^14.17.0 || ^16.0.0 || >= 18.0.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=7"
+  },
   "license": "ISC"
 }

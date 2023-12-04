@@ -1,5 +1,5 @@
 {
-  "name": "9to5-eslint",
+  "name": "eslint-plugin-9to5",
   "version": "1.0.0",
   "description": "Custom eslint rules we use at 9to5-software",
   "main": "index.js",
